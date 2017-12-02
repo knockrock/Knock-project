@@ -1,5 +1,0 @@
-#include <signal.h>#include <stdio.h>#include <stdlib.h>
-void cntrl_signal(int sig){char answer;printf("%d번 신호가 발생했습니다.\n", sig);printf("종료 하시겠습니까? (y/n)\n");scanf("%c", &answer);if((answer == 'y') || (answer == 'Y'))  exit(1);}
-
-main 
-signal(SIGINT, cntrl_signal);
