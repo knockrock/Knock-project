@@ -192,7 +192,8 @@ void check_m_node(movie * M_L, m_node * newnode) // movie 연결리스트에 중
 			}
 			else if(strcmp(c,"Yes") == 0 || strcmp(c,"Y") == 0 || strcmp(c,"yes") == 0 || strcmp(c,"y") == 0)
 			{
-				break;
+				M_L=M_L->next;
+				continue;
 			}
 		}
 		M_L=M_L->next;
@@ -377,7 +378,8 @@ void check_d_node(director * D_L, d_node * newnode) // director 연결리스트�
 			}
 			else if(strcmp(c,"Yes") == 0 || strcmp(c,"Y") == 0 || strcmp(c,"yes") == 0 || strcmp(c,"y") == 0)
 			{
-				break;
+				D_L=D_L->next;
+				continue;
 			}
 		}
 		D_L=D_L->next;
@@ -555,7 +557,8 @@ void check_a_node(actor *A_L, a_node * newnode) // actor 연결리스트에 중�
 			}
 			else if(strcmp(c,"Yes") == 0 || strcmp(c,"Y") == 0 || strcmp(c,"yes") == 0 || strcmp(c,"y") == 0)
 			{
-				break;
+				A_L=A_L->next;
+				continue;
 			}
 		}
 		A_L=A_L->next;

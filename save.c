@@ -34,6 +34,7 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 			fprintf(fp,"\n");
 			M_L= M_L->next;
 		}
+		printf("@@ Done\n");
 	}
 	if(optcnt==2)
 	{
@@ -84,18 +85,19 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 			}
 			else
 			{
-				printf("Please enter the option correctly. (t/g/d/y/r/a)\n");
+				printf("@@ Please enter the option correctly. (t/g/d/y/r/a)\n");
 				return ;
 			}
 			fprintf(fp,"\n");
 			M_L= M_L->next;
 		}
+		printf("@@ Done\n");
 	}
 	if(optcnt==3)
 	{
 		if(strcmp(opt2,"-f")!=0)
 		{
-			printf("Please enter the option correctly.\n");
+			printf("@@ Please enter the option correctly.\n");
 		}
 		else
 		{
@@ -126,13 +128,14 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 				fprintf(fp,"\n");
 				M_L= M_L->next;
 			}
+			printf("@@ Done\n");
 		}
 	}
 	if(optcnt==4)
 	{
 		if(strcmp(opt3,"-f")!=0)
 		{
-			printf("Please enter the option correctly.\n");
+			printf("@@ Please enter the option correctly.\n");
 		}
 		else
 		{
@@ -183,12 +186,13 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 				}
 				else
 				{
-					printf("Please enter the option correctly. (t/g/d/y/r/a)\n");
+					printf("@@ Please enter the option correctly. (t/g/d/y/r/a)\n");
 					return ;
 				}
 				fprintf(fp,"\n");
 				M_L= M_L->next;
 			}
+			printf("@@ Done\n");
 		}
 	}
 }
@@ -219,6 +223,7 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 			fprintf(fp,"\n");
 			D_L= D_L->next;
 		}
+		printf("@@ Done\n");
 	}
 	if(optcnt==2)
 	{
@@ -259,22 +264,23 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 			}
 			else
 			{
-				printf("Please enter the option correctly. (n/s/b/m)\n");
+				printf("@@ Please enter the option correctly. (n/s/b/m)\n");
 				return ;
 			}
 			fprintf(fp,"\n");
 			D_L= D_L->next;
 		}
+		printf("@@ Done\n");
 	}
 	if(optcnt==3)
 	{
 		if(strcmp(opt2,"-f")!=0)
 		{
-			printf("Please enter the option correctly.\n");
+			printf("@@ Please enter the option correctly.\n");
 		}
 		else
 		{
-			FILE * fp = fopen("director_list","w");
+			FILE * fp = fopen(opt3,"w");
 			while(D_L!=NULL)
 			{
 				to_movie * tmp = (to_movie*)malloc(sizeof(to_movie));
@@ -297,13 +303,14 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 				fprintf(fp,"\n");
 				D_L= D_L->next;
 			}
+			printf("@@ Done\n");
 		}
 	}
 	if(optcnt==4)
 	{
 		if(strcmp(opt3,"-f")!=0)
 		{
-			printf("Please enter the option correctly.\n");
+			printf("@@ Please enter the option correctly.\n");
 		}
 		else
 		{
@@ -344,12 +351,13 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 				}
 				else
 				{
-					printf("Please enter the option correctly. (n/s/b/m)\n");
+					printf("@@ Please enter the option correctly. (n/s/b/m)\n");
 					return ;
 				}
 				fprintf(fp,"\n");
 				D_L= D_L->next;
 			}
+			printf("@@ Done\n");
 		}
 	}
 }
@@ -380,6 +388,7 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 			fprintf(fp,"\n");
 			A_L= A_L->next;
 		}
+		printf("@@ Done\n");
 	}
 	if(optcnt==2)
 	{
@@ -420,22 +429,23 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 			}
 			else
 			{
-				printf("Please enter the option correctly. (n/s/b/m)\n");
+				printf("@@ Please enter the option correctly. (n/s/b/m)\n");
 				return ;
 			}
 			fprintf(fp,"\n");
 			A_L= A_L->next;
 		}
+		printf("@@ Done\n");
 	}
 	if(optcnt==3)
 	{
 		if(strcmp(opt2,"-f")!=0)
 		{
-			printf("Please enter the option correctly.\n");
+			printf("@@ Please enter the option correctly.\n");
 		}
 		else
 		{
-			FILE * fp = fopen("actor_list","w");
+			FILE * fp = fopen(opt3,"w");
 			while(A_L!=NULL)
 			{
 				to_movie * tmp = (to_movie*)malloc(sizeof(to_movie));
@@ -458,13 +468,14 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 				fprintf(fp,"\n");
 				A_L= A_L->next;
 			}
+			printf("@@ Done\n");
 		}
 	}
 	if(optcnt==4)
 	{
 		if(strcmp(opt3,"-f")!=0)
 		{
-			printf("Please enter the option correctly.\n");
+			printf("@@ Please enter the option correctly.\n");
 		}
 		else
 		{
@@ -505,12 +516,13 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 				}
 				else
 				{
-					printf("Please enter the option correctly. (n/s/b/m)\n");
+					printf("@@ Please enter the option correctly. (n/s/b/m)\n");
 					return ;
 				}
 				fprintf(fp,"\n");
 				A_L= A_L->next;
 			}
+			printf("@@ Done\n");
 		}
 	}
 }
