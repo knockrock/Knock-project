@@ -79,6 +79,7 @@ void m_sort(movie * M_L, int optcnt, char * opt2, char * opt3, char * opt4)
         printf("\n");
         (*(tmp+i)).m_data.actors = tmp_actors;
       }
+      printf("@@ Done\n");
     }
     if(optcnt==2)
     {
@@ -109,6 +110,7 @@ void m_sort(movie * M_L, int optcnt, char * opt2, char * opt3, char * opt4)
           printf("\n");
           (*(tmp+i)).m_data.actors = tmp_actors;
         }
+        printf("@@ Done\n");
       }
       else
         printf("Please enter the option correctly. (t/g/d/y/r/a)\n");
@@ -137,6 +139,7 @@ void m_sort(movie * M_L, int optcnt, char * opt2, char * opt3, char * opt4)
           (*(tmp+i)).m_data.actors = tmp_actors;
         }
         fclose(fp);
+        printf("@@ Done\n");
       }
     }
     if(optcnt==4)
@@ -176,6 +179,7 @@ void m_sort(movie * M_L, int optcnt, char * opt2, char * opt3, char * opt4)
             (*(tmp+i)).m_data.actors = tmp_actors;
           }
           fclose(fp);
+          printf("@@ Done\n");
         }
         else
         printf("Please enter the option correctly. (t/g/d/y/r/a)\n");
@@ -254,6 +258,7 @@ void d_sort(director * D_L, int optcnt, char * opt2, char * opt3, char * opt4)
         printf("\n");
         (*(tmp+i)).d_data.best_movies = tmp_best_movies;
       }
+      printf("@@ Done\n");
     }
     if(optcnt==2)
     {
@@ -280,6 +285,7 @@ void d_sort(director * D_L, int optcnt, char * opt2, char * opt3, char * opt4)
           printf("\n");
           (*(tmp+i)).d_data.best_movies = tmp_best_movies;
         }
+        printf("@@ Done\n");
       }
       else
         printf("Please enter the option correctly. (n/s/b/m)\n");
@@ -308,6 +314,7 @@ void d_sort(director * D_L, int optcnt, char * opt2, char * opt3, char * opt4)
           (*(tmp+i)).d_data.best_movies = tmp_best_movies;
         }
         fclose(fp);
+        printf("@@ Done\n");
       }
     }
     if(optcnt==4)
@@ -343,6 +350,7 @@ void d_sort(director * D_L, int optcnt, char * opt2, char * opt3, char * opt4)
             (*(tmp+i)).d_data.best_movies = tmp_best_movies;
           }
           fclose(fp);
+          printf("@@ Done\n");
         }
         else
           printf("Please enter the option correctly. (n/s/b/m)\n");
@@ -420,6 +428,7 @@ void a_sort(actor* A_L, int optcnt, char * opt2, char * opt3, char * opt4)
           printf("\n");
           (*(tmp+i)).a_data.best_movies = tmp_best_movies;
         }
+        printf("@@ Done\n");
     }
     if(optcnt==2)
     {
@@ -446,6 +455,7 @@ void a_sort(actor* A_L, int optcnt, char * opt2, char * opt3, char * opt4)
           printf("\n");
           (*(tmp+i)).a_data.best_movies = tmp_best_movies;
         }
+        printf("@@ Done\n");
       }
       else
         printf("Please enter the option correctly. (n/s/b/m)\n");
@@ -474,6 +484,7 @@ void a_sort(actor* A_L, int optcnt, char * opt2, char * opt3, char * opt4)
           (*(tmp+i)).a_data.best_movies = tmp_best_movies;
         }
         fclose(fp);
+        printf("@@ Done\n");
       }
     }
     if(optcnt==4)
@@ -509,6 +520,7 @@ void a_sort(actor* A_L, int optcnt, char * opt2, char * opt3, char * opt4)
             (*(tmp+i)).a_data.best_movies = tmp_best_movies;
           }
           fclose(fp);
+          printf("@@ Done\n");
         }
         else
           printf("Please enter the option correctly. (n/s/b/m)\n");
