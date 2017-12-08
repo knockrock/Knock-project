@@ -21,9 +21,7 @@ void delete_d(director *p, char * opt2)
     fputs(p->d_data.best_movies->title,fp1);
     fprintf(fp1,"\n");
     fclose(fp1);
-    tmp = p;
-    free(tmp);
-    p=p->next;
+    *p = *p->next;
     printf("@@Done\n");
   }
   else
@@ -88,9 +86,7 @@ void delete_a(actor *p, char * opt2)
   	fputs(p->a_data.best_movies->title,fp1);
   	fprintf(fp1,"\n");
   	fclose(fp1);
-    tmp = p;
-    free(tmp);
-    p=p->next;
+    *p = *p->next;
     printf("@@Done\n");
     return ;
   }
@@ -159,9 +155,7 @@ void delete_m(movie *p, char * opt2)
    fputs(p->m_data.actors->actor,fp1);
    fprintf(fp1,"\n");
    fclose(fp1);
-    tmp = p;
-    free(tmp);
-    p=p->next;
+   *p = *p->next;
     printf("@@Done\n");
   }
   else
