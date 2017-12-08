@@ -19,24 +19,11 @@ void delete_d(director *p, char * opt2)
     fputs(p->d_data.birth,fp1);
     fprintf(fp1,":");
     fputs(p->d_data.best_movies->title,fp1);
-    p->d_data.best_movies=p->d_data.best_movies->next;
-
-    if(p->d_data.best_movies!=NULL)
-    {
-      while(1)
-      {
-        fprintf(fp1,",");
-        fputs(p->d_data.best_movies->title,fp1);
-        p->d_data.best_movies=p->d_data.best_movies->next;
-        if(p->d_data.best_movies==NULL)
-        break;
-      }
-    }
     fprintf(fp1,"\n");
     fclose(fp1);
-    tmp = p->next->next;
-    free(p);
-    p=tmp;
+    tmp = p;
+    free(tmp);
+    p=p->next;
     printf("@@Done\n");
   }
   else
@@ -99,24 +86,11 @@ void delete_a(actor *p, char * opt2)
   	fputs(p->a_data.birth,fp1);
   	fprintf(fp1,":");
   	fputs(p->a_data.best_movies->title,fp1);
-  	p->a_data.best_movies=p->a_data.best_movies->next;
-
-  	if(p->a_data.best_movies!=NULL)
-  	{
-  		while(1)
-  		{
-  			fprintf(fp1,",");
-  			fputs(p->a_data.best_movies->title,fp1);
-  			p->a_data.best_movies=p->a_data.best_movies->next;
-  			if(p->a_data.best_movies==NULL)
-  			break;
-  		}
-  	}
   	fprintf(fp1,"\n");
   	fclose(fp1);
-    tmp = p->next->next;
-    free(p);
-    p=tmp;
+    tmp = p;
+    free(tmp);
+    p=p->next;
     printf("@@Done\n");
     return ;
   }
@@ -183,25 +157,11 @@ void delete_m(movie *p, char * opt2)
    fputs(p->m_data.runtime,fp1);
    fprintf(fp1,":");
    fputs(p->m_data.actors->actor,fp1);
-   p->m_data.actors=p->m_data.actors->next;
-
-   if(p->m_data.actors!=NULL)
-   {
-     while(1)
-     {
-       fprintf(fp1,",");
-       fputs(p->m_data.actors->actor,fp1);
-       p->m_data.actors=p->m_data.actors->next;
-       if(p->m_data.actors==NULL)
-         break;
-     }
-   }
    fprintf(fp1,"\n");
    fclose(fp1);
-    tmp = p->next;
-    free(p);
-    p=NULL;
-    p=tmp;
+    tmp = p;
+    free(tmp);
+    p=p->next;
     printf("@@Done\n");
   }
   else
