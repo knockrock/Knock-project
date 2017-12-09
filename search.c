@@ -1,9 +1,67 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "movie_manage_program.h"
 
 
-int search(char *origin, char *search)
+void search();
+int search_algorithm(char *origin, char *search);
+int search_movie(structr movie_node* movie, char * search_sentence);
+int search_director(struct director_node* director, char * search_sentence);
+int search_actor(struct actor_node* actir, char * search_sentence);
+
+
+
+void search()
+{
+  char *option;
+
+  option = malloc(10 * sizeof(char));
+  
+  if(option == 'm')
+  {
+    
+  }
+  
+  else if(option == 'a')
+  {
+    
+  }
+  
+  else if(option == 'd')
+  {
+    
+  }
+  
+  else if((option == 'ma') || (option == 'am'))
+  {
+    
+  }
+
+  else if((option == 'md') || (option == 'dm'))
+  {
+    
+  }
+
+  else if((option == 'da') || (option == 'ad'))
+  {
+    
+  }
+
+  else if((option == 'mad') || (option == 'amd') || (option == 'dma') || (option == 'mda') || (option == 'adm') || (option == 'dam'))
+  {
+    
+  }
+
+  else
+  {
+    printf("Invalid input\n");
+  }
+
+  
+}
+
+
+
+int search_algorithm(char *origin, char *search)
 {
   int search_length;
   search_lenght = strlen(*search);
@@ -18,8 +76,8 @@ int search(char *origin, char *search)
     {
       // int search_length_tmp = search_length -1;
 
-      int flag1 = 0;
-      int flag2 = 0;
+      int flag = 0;
+      int flag_tmp = 0;
 
       for(int i = 0; i < search_length -2; i++)
       {
@@ -155,7 +213,7 @@ int search_director(struct director_node* director, char * search_sentence)
 }
 
 
-int search_actor(struct actor_node* actir, char * search_sentence)
+int search_actor(struct actor_node* actor, char * search_sentence)
 {
   int flag = 0;
   int decide_flag = 0;
