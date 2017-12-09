@@ -491,7 +491,7 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
       char a;
       
       printf("@@ Do you want Save? (Y/N)\n");
-      scanf('%c', &a);
+      scanf("%c", &a);
       
       if(!(strcmp(a, "Y")) || !(strcmp(a, "y")))
       {
