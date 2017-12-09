@@ -1,17 +1,25 @@
+#ifndef movie_manage_program_h
+#define movie_manage_program_h
+
 #include <stdio.h>
+
+typedef struct movie_node m_node; //영화 정보 저장 구조체
+typedef struct director_node d_node; //감독 정보 저장 구조체
+typedef struct actor_node a_node; //배우 정보 저장 구조체
 
 typedef struct to_movie{
 	char * title;
-	char * same_title;
+	m_node * same_title;
 	struct to_movie * next;
 }to_movie;
 typedef struct to_director{
 	char * director;
-	char * same_director;
+	d_node * same_director;
+	struct to_director * next;
 }to_director;
 typedef struct to_actor{
 	char * actor;
-	char * same_actor;
+	a_node * same_actor;
 	struct to_actor * next;
 }to_actor;
 typedef struct movie_node{
@@ -95,6 +103,18 @@ void prompt(); // 영화 관리 프로그램 기본 프롬프트
 void m_update(); //movie 노드 업데이트
 void d_update(); //director 노드 업데이트
 void a_update(); //actor 노드 업데이트
-void delete_m();
-void delete_d();
-void delete_a();
+void delete_m(); // movie 노드 삭제
+void delete_d(); // director 노드 삭제
+void delete_a(); // actor 노드 삭제
+void print_d();  // director 노드 출력
+void delete_log_d(); // director log파일 읽을 때 삭제
+void delete_log_a(); // actor log파일 읽을 때 삭제
+void delete_log_m(); // movie log파일 읽을 때 삭제
+void cntrl_signal(); // 신호 처리 함수
+void d_link();
+void m_link();
+void a_link();
+void m_update_log();
+void d_update_log();
+void a_update_log();
+#endif
