@@ -22,11 +22,11 @@ void m_update(movie * M_L, int optcnt, char * opt2, int opt3)
 					return ;
 				}
 			M_L=M_L->next;
-		}
+		} //지정한 시리얼 번호가 있는지 확인
 		FILE * fp = fopen("movie_log","a");
 		fprintf(fp,"update:%d:",M_L->m_data.serial_number);
 		if(strchr(opt2,'t')!=NULL||strchr(opt2,'g')!=NULL||strchr(opt2,'d')!=NULL||strchr(opt2,'y')!=NULL||strchr(opt2,'r')!=NULL||strchr(opt2,'a')!=NULL)
-		{
+		{//옵션 확인
 			if(strchr(opt2,'t')!=NULL)
 			{
 				char * af_title = (char*)malloc(100);
@@ -169,7 +169,7 @@ void m_update(movie * M_L, int optcnt, char * opt2, int opt3)
 		}
 		else
 			printf("Please enter the option correctly.\n");
-	}
+	}//지정된 옵션에 따라 새로 입력받은 메모리를 포인터하게 함
 }
 
 void d_update(director * D_L, int optcnt, char * opt2, int opt3)
@@ -194,7 +194,7 @@ void d_update(director * D_L, int optcnt, char * opt2, int opt3)
 		FILE * fp = fopen("director_log","a");
 		fprintf(fp,"update:%d:",D_L->d_data.serial_number);
 		if(strchr(opt2,'n')!=NULL||strchr(opt2,'s')!=NULL||strchr(opt2,'b')!=NULL||strchr(opt2,'m')!=NULL)
-		{
+		{//옵션 확인
 			if(strchr(opt2,'n')!=NULL)
 			{
 				char * af_name = (char*)malloc(100);
@@ -317,7 +317,7 @@ void d_update(director * D_L, int optcnt, char * opt2, int opt3)
 		}
 		else
 			printf("Please enter the option correctly.\n");
-	}
+	}//지정된 옵션에 따라 새로 입력받은 메모리를 포인터하게 함
 }
 
 void a_update(actor * A_L, int optcnt, char * opt2, int opt3)
@@ -342,7 +342,7 @@ void a_update(actor * A_L, int optcnt, char * opt2, int opt3)
 		FILE * fp = fopen("actor_log","a");
 		fprintf(fp,"update:%d:",A_L->a_data.serial_number);
 		if(strchr(opt2,'n')!=NULL||strchr(opt2,'s')!=NULL||strchr(opt2,'b')!=NULL||strchr(opt2,'m')!=NULL)
-		{
+		{//옵션 확인
 			if(strchr(opt2,'n')!=NULL)
 			{
 				char * af_name = (char*)malloc(100);
@@ -465,5 +465,5 @@ void a_update(actor * A_L, int optcnt, char * opt2, int opt3)
 		}
 		else
 			printf("Please enter the option correctly.\n");
-	}
+	}//지정된 옵션에 따라 새로 입력받은 메모리를 포인터하게 함
 }
