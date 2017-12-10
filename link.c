@@ -5,6 +5,8 @@
 
 void d_link(director *p, actor * q, movie * z)
 {
+  movie * tmp;
+  tmp = z;
   while(p->next != NULL)
   {
     if(p->d_data.best_movies->next == NULL)
@@ -21,6 +23,7 @@ void d_link(director *p, actor * q, movie * z)
         {
           p->d_data.best_movies->same_title = z;
         }
+        z = tmp;
     }
     else if(p->d_data.best_movies->next != NULL)
     {
@@ -39,6 +42,7 @@ void d_link(director *p, actor * q, movie * z)
           p->d_data.best_movies->same_title = z;
         }
         p->d_data.best_movies=p->d_data.best_movies->next;
+        z = tmp;
     }
     while(z->next != NULL)
     {
@@ -52,6 +56,7 @@ void d_link(director *p, actor * q, movie * z)
       {
         p->d_data.best_movies->same_title = z;
       }
+      z = tmp;
   }
         p=p->next;
 }
@@ -69,6 +74,7 @@ if(p->d_data.best_movies->next == NULL)
     {
       p->d_data.best_movies->same_title = z;
     }
+    z = tmp;
 }
 else if(p->d_data.best_movies->next != NULL)
 {
@@ -87,12 +93,28 @@ else if(p->d_data.best_movies->next != NULL)
         p->d_data.best_movies->same_title = z;
       }
       p->d_data.best_movies=p->d_data.best_movies->next;
+      z = tmp;
   }
+  while(z->next != NULL)
+  {
+    if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0)
+    {
+      p->d_data.best_movies->same_title = z;
+    }
+    z=z->next;
+  }
+    if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0)
+    {
+      p->d_data.best_movies->same_title = z;
+    }
+    z = tmp;
 }
 }
 
 void a_link(actor *p, director * q, movie * z)
 {
+  movie * tmp;
+  tmp = z;
   while(p->next != NULL)
   {
     if(p->a_data.best_movies->next == NULL)
@@ -109,6 +131,7 @@ void a_link(actor *p, director * q, movie * z)
         {
           p->a_data.best_movies->same_title = z;
         }
+        z=tmp;
     }
     else if(p->a_data.best_movies->next != NULL)
     {
@@ -127,6 +150,7 @@ void a_link(actor *p, director * q, movie * z)
           p->a_data.best_movies->same_title = z;
         }
         p->a_data.best_movies=p->a_data.best_movies->next;
+        z=tmp;
     }
     while(z->next != NULL)
     {
@@ -140,6 +164,7 @@ void a_link(actor *p, director * q, movie * z)
       {
         p->a_data.best_movies->same_title = z;
       }
+      z=tmp;
   }
         p=p->next;
 }
@@ -157,6 +182,7 @@ if(p->a_data.best_movies->next == NULL)
     {
       p->a_data.best_movies->same_title = z;
     }
+    z=tmp;
 }
 else if(p->a_data.best_movies->next != NULL)
 {
@@ -175,12 +201,28 @@ else if(p->a_data.best_movies->next != NULL)
         p->a_data.best_movies->same_title = z;
       }
       p->a_data.best_movies=p->a_data.best_movies->next;
+      z=tmp;
   }
+  while(z->next != NULL)
+  {
+    if(strcmp(p->a_data.best_movies->title, z->m_data.title) == 0)
+    {
+      p->a_data.best_movies->same_title = z;
+    }
+    z=z->next;
+  }
+    if(strcmp(p->a_data.best_movies->title, z->m_data.title) == 0)
+    {
+      p->a_data.best_movies->same_title = z;
+    }
+    z=tmp;
 }
 }
 
 void m_d_link(director *p, actor * q, movie * z)
 {
+  director * tmp;
+  tmp = p;
   while(z->next != NULL)
   {
     if(z->m_data.director->next == NULL)
@@ -197,6 +239,7 @@ void m_d_link(director *p, actor * q, movie * z)
         {
           z->m_data.director->same_director = p;
         }
+        p=tmp;
     }
     else if(z->m_data.director->next != NULL)
     {
@@ -215,6 +258,7 @@ void m_d_link(director *p, actor * q, movie * z)
             z->m_data.director->same_director = p;
           }
           z->m_data.director=z->m_data.director->next;
+          p=tmp;
       }
       while(p->next != NULL)
       {
@@ -228,6 +272,7 @@ void m_d_link(director *p, actor * q, movie * z)
         {
           z->m_data.director->same_director = p;
         }
+        p=tmp;
     }
     z=z->next;
   }
@@ -245,6 +290,7 @@ void m_d_link(director *p, actor * q, movie * z)
         {
           z->m_data.director->same_director = p;
         }
+        p=tmp;
     }
     else if(z->m_data.director->next != NULL)
     {
@@ -263,6 +309,7 @@ void m_d_link(director *p, actor * q, movie * z)
             z->m_data.director->same_director = p;
           }
           z->m_data.director=z->m_data.director->next;
+          p=tmp;
       }
       while(p->next != NULL)
       {
@@ -276,10 +323,13 @@ void m_d_link(director *p, actor * q, movie * z)
         {
           z->m_data.director->same_director = p;
         }
+        p=tmp;
     }
 }
 void m_a_link(actor * p, director * q, movie * z)
 {
+  actor * tmp;
+  tmp = p;
   while(z->next != NULL)
   {
     if(z->m_data.actors->next == NULL)
@@ -296,6 +346,7 @@ void m_a_link(actor * p, director * q, movie * z)
         {
           z->m_data.actors->same_actor = p;
         }
+        p=tmp;
     }
     else if(z->m_data.actors->next != NULL)
     {
@@ -314,6 +365,7 @@ void m_a_link(actor * p, director * q, movie * z)
             z->m_data.actors->same_actor = p;
           }
           z->m_data.actors=z->m_data.actors->next;
+          p=tmp;
       }
       while(p->next != NULL)
       {
@@ -327,6 +379,7 @@ void m_a_link(actor * p, director * q, movie * z)
         {
           z->m_data.actors->same_actor = p;
         }
+          p=tmp;
     }
     z=z->next;
   }
@@ -344,6 +397,7 @@ void m_a_link(actor * p, director * q, movie * z)
         {
           z->m_data.actors->same_actor = p;
         }
+          p=tmp;
     }
     else if (z->m_data.actors->next != NULL)
     {
@@ -362,6 +416,7 @@ void m_a_link(actor * p, director * q, movie * z)
             z->m_data.actors->same_actor = p;
           }
           z->m_data.actors=z->m_data.actors->next;
+            p=tmp;
       }
       while(p->next != NULL)
       {
@@ -375,5 +430,6 @@ void m_a_link(actor * p, director * q, movie * z)
         {
           z->m_data.actors->same_actor = p;
         }
+          p=tmp;
     }
 }
