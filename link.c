@@ -3,35 +3,35 @@
 #include <string.h>
 #include "movie_manage_program.h"
 
-void d_link(director *p, actor * q, movie * z)
+void d_link(director *p, actor * q, movie * z) // director랑 movie 연결
 {
   movie * tmp;
   tmp = z;
   while(p->next != NULL)
   {
-    if(p->d_data.best_movies->next == NULL)
+    if(p->d_data.best_movies->next == NULL) // best_movies의 next가 NULL이면 실행
     {
       while(z->next != NULL)
       {
-        if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0)
+        if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0) // director node에 title이 movie node에 title과 같으면 실행
         {
-          p->d_data.best_movies->same_title = z;
+          p->d_data.best_movies->same_title = z;  // same_title 이 z를 포인트
         }
         z=z->next;
       }
-        if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0)
+        if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0) // 마지막 movie node 검사
         {
           p->d_data.best_movies->same_title = z;
         }
-        z = tmp;
+        z = tmp; // movie를 처음 위치로 만듬
     }
-    else if(p->d_data.best_movies->next != NULL)
+    else if(p->d_data.best_movies->next != NULL) // best_movies의 next가 NULL이 아니면 실행
     {
     while(p->d_data.best_movies->next != NULL)
     {
       while(z->next != NULL)
       {
-        if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0)
+        if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0) // director node에 title이 movie node에 title과 같으면 실행
         {
           p->d_data.best_movies->same_title = z;
         }
@@ -44,7 +44,7 @@ void d_link(director *p, actor * q, movie * z)
         p->d_data.best_movies=p->d_data.best_movies->next;
         z = tmp;
     }
-    while(z->next != NULL)
+    while(z->next != NULL) // 마지막 best_movies 검사
     {
       if(strcmp(p->d_data.best_movies->title, z->m_data.title) == 0)
       {
@@ -111,19 +111,19 @@ else if(p->d_data.best_movies->next != NULL)
 }
 }
 
-void a_link(actor *p, director * q, movie * z)
+void a_link(actor *p, director * q, movie * z) // actor랑 movie 연결
 {
   movie * tmp;
   tmp = z;
   while(p->next != NULL)
   {
-    if(p->a_data.best_movies->next == NULL)
+    if(p->a_data.best_movies->next == NULL) // best_movies의 next가 NULL이면 실행
     {
       while(z->next != NULL)
       {
         if(strcmp(p->a_data.best_movies->title, z->m_data.title) == 0)
         {
-          p->a_data.best_movies->same_title = z;
+          p->a_data.best_movies->same_title = z; // same_title이 movie를 포인트
         }
         z=z->next;
       }
@@ -131,7 +131,7 @@ void a_link(actor *p, director * q, movie * z)
         {
           p->a_data.best_movies->same_title = z;
         }
-        z=tmp;
+        z=tmp; // movie 노드의 위치를 1번으로 만듬
     }
     else if(p->a_data.best_movies->next != NULL)
     {
@@ -219,7 +219,7 @@ else if(p->a_data.best_movies->next != NULL)
 }
 }
 
-void m_d_link(director *p, actor * q, movie * z)
+void m_d_link(director *p, actor * q, movie * z) // movie와 director 연결
 {
   director * tmp;
   tmp = p;
@@ -326,7 +326,7 @@ void m_d_link(director *p, actor * q, movie * z)
         p=tmp;
     }
 }
-void m_a_link(actor * p, director * q, movie * z)
+void m_a_link(actor * p, director * q, movie * z) // movie와 actor 연결
 {
   actor * tmp;
   tmp = p;
