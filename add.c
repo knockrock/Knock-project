@@ -265,7 +265,7 @@ d_node * input_D_node() //director 노드 추가
 
 	printf("name > ");
 	gets(newnode->name);
-	printf("genre > ");
+	printf("sex > ");
 	gets(&newnode->sex);
 	printf("birth > ");
 	gets(newnode->birth);
@@ -443,7 +443,7 @@ a_node * input_A_node() // actor 노드 추가
 
 	printf("name > ");
 	gets(newnode->name);
-	printf("genre > ");
+	printf("sex > ");
 	gets(&newnode->sex);
 	printf("birth > ");
 	gets(newnode->birth);
