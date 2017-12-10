@@ -446,6 +446,7 @@ int search_actor(actor* actor, char * search_sentence)//actor record 방식의 �
       printf("%s ", actor -> a_data.best_movies -> title);
       actor -> a_data.best_movies = actor -> a_data.best_movies -> next;
     }
+    printf("\n");
 
 
 
