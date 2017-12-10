@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include "movie_manage_program.h"
+#include "movie_manage_program.h"
 void rechange_colon(char* sentence);
 void rechange_colon_file(FILE* file, char *sentence);
 char* change_colon(char* sentence);
