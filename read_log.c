@@ -6,11 +6,10 @@ movie *read_m_log(movie * M_L)
 {
   char c;
   char * option = (char*)malloc(10);
-  
-  FILE *fp = fopen("movie_log","r");
+  FILE *fp = fopen("movie_log","r"); //로그 파일 열기
   if((c=fgetc(fp))!=EOF)
   {
-    while(1)
+    while(1)//로그 파일의 내용을 한 줄씩 읽어서 각자 node로 만들어 tag에 따라 링크드리스트에 적용시킴
     {
       fseek(fp,-1,SEEK_CUR);
       char * str = (char*)malloc(251);
@@ -60,20 +59,19 @@ movie *read_m_log(movie * M_L)
     		}
     	}
     	newnode->actors=tmp;
-      if(strcmp(tag,"add")==0)
+      if(strcmp(tag,"add")==0) // tag가 add 일 경우 링크드리스트에 노드 추가
       {
         if(M_L==NULL)
           init_M_node(&M_L,newnode);
         else
           link_M_node(M_L,newnode);
       }
-      else if(strcmp(tag,"delete")==0)
+      else if(strcmp(tag,"delete")==0) //tag가 delete일 경우 링크드리스트에서 노드 삭제
       {
         delete_log_m(M_L, newnode);
       }
-      else if(strcmp(tag,"update")==0)
+      else if(strcmp(tag,"update")==0) //tag가 update 일 경우 링크드리스트에서 지정된 시리얼 번호의 노드 데이터 변경
       {
-
         if(strcmp(newnode->title,"=")!=0)
           strcpy(option,"t");
         if(strcmp(newnode->genre,"=")!=0)
@@ -87,26 +85,22 @@ movie *read_m_log(movie * M_L)
         if(strcmp(newnode->actors->actor,"=")!=0)
           strcpy(option,"a");
         m_update_log(M_L,newnode,option,newnode->serial_number);
-
       }
       if((c=fgetc(fp))==EOF)
-        break;
+        break; // 파일 끝을 만나면 반복문 탈출
     }
   }
-  fclose(fp);
+  fclose(fp); //파일 닫기
   return M_L;
 }
-
 director *read_d_log(director * D_L)
 {
   char c;
-
   char * option = (char*)malloc(10);
-
-  FILE *fp = fopen("director_log","r");
+  FILE *fp = fopen("director_log","r"); //로그 파일 열기
   if((c=fgetc(fp))!=EOF)
   {
-    while(1)
+    while(1)//로그 파일의 내용을 한 줄씩 읽어서 각자 node로 만들어 tag에 따라 링크드리스트에 적용시킴
     {
       fseek(fp,-1,SEEK_CUR);
       char * str = (char*)malloc(251);
@@ -150,20 +144,19 @@ director *read_d_log(director * D_L)
     		}
     	}
     	newnode->best_movies=tmp;
-      if(strcmp(tag,"add")==0)
+      if(strcmp(tag,"add")==0)// tag가 add 일 경우 링크드리스트에 노드 추가
       {
         if(D_L==NULL)
           init_D_node(&D_L,newnode);
         else
           link_D_node(D_L,newnode);
       }
-      else if(strcmp(tag,"delete")==0)
+      else if(strcmp(tag,"delete")==0)//tag가 delete일 경우 링크드리스트에서 노드 삭제
       {
         delete_log_d(D_L, newnode);
       }
-      else if(strcmp(tag,"update")==0)
+      else if(strcmp(tag,"update")==0)//tag가 update 일 경우 링크드리스트에서 지정된 시리얼 번호의 노드 데이터 변경
       {
-
         if(strcmp(newnode->name,"=")!=0)
           strcpy(option,"n");
         if(strcmp(&newnode->sex,"=")!=0)
@@ -173,23 +166,19 @@ director *read_d_log(director * D_L)
         if(strcmp(newnode->best_movies->title,"=")!=0)
           strcpy(option,"m");
         d_update_log(D_L,newnode,option,newnode->serial_number);
-
       }
       if((c=fgetc(fp))==EOF)
-        break;
+        break; //파일 끝을 만나면 반복문 탈출
     }
   }
-  fclose(fp);
+  fclose(fp);//파일 닫기
   return D_L;
 }
-
 actor *read_a_log(actor * A_L)
 {
   char c;
-
   char * option = (char*)malloc(10);
-
-  FILE *fp = fopen("actor_log","r");
+  FILE *fp = fopen("actor_log","r"); // 로그 파일 열기
   if((c=fgetc(fp))!=EOF)
   {
     while(1)
@@ -221,7 +210,7 @@ actor *read_a_log(actor * A_L)
       tmp_best_movies = strtok(NULL,":");
       newnode->best_movies->title = strtok(tmp_best_movies,",");
 
-      while(1)
+      while(1)//로그 파일의 내용을 한 줄씩 읽어서 각자 node로 만들어 tag에 따라 링크드리스트에 적용시킴
     	{
     		link_title(newnode->best_movies);
     		while(newnode->best_movies->next->next!=NULL)
@@ -236,20 +225,19 @@ actor *read_a_log(actor * A_L)
     		}
     	}
     	newnode->best_movies=tmp;
-      if(strcmp(tag,"add")==0)
+      if(strcmp(tag,"add")==0)// tag가 add 일 경우 링크드리스트에 노드 추가
       {
         if(A_L==NULL)
           init_A_node(&A_L,newnode);
         else
           link_A_node(A_L,newnode);
       }
-      else if(strcmp(tag,"delete")==0)
+      else if(strcmp(tag,"delete")==0)//tag가 delete일 경우 링크드리스트에서 노드 삭제
       {
         delete_log_a(A_L, newnode);
       }
-      else if(strcmp(tag,"update")==0)
+      else if(strcmp(tag,"update")==0)//tag가 update 일 경우 링크드리스트에서 지정된 시리얼 번호의 노드 데이터 변경
       {
-
         if(strcmp(newnode->name,"=")!=0)
           strcpy(option,"n");
         if(strcmp(&newnode->sex,"=")!=0)
@@ -259,12 +247,11 @@ actor *read_a_log(actor * A_L)
         if(strcmp(newnode->best_movies->title,"=")!=0)
           strcpy(option,"m");
         a_update_log(A_L,newnode,option,newnode->serial_number);
-
       }
       if((c=fgetc(fp))==EOF)
-        break;
+        break; //파일 끝을 만나면 반복분 탈출
     }
   }
-  fclose(fp);
+  fclose(fp); //파일 닫기
   return A_L;
 }

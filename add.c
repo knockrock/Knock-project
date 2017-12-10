@@ -152,7 +152,7 @@ void check_m_node(movie * M_L, m_node * newnode) // movie 연결리스트에 중
 	M_L = tmp_M_L;
 	while(M_L->next!=NULL)
 	{
-		if(strcmp(M_L->m_data.title, newnode->title) == 0)
+		if(strcmp(M_L->m_data.title, newnode->title) == 0) //기존의 존재하는 노드의 데이터와 새로 받은 노드의 데이터가 같은지 확인
 		{
 			printf("@@ You have the same record in movie list.\n");
 			printf("%d:%s:%s:%s:%s:%s:",M_L->m_data.serial_number,M_L->m_data.title,M_L->m_data.genre,M_L->m_data.director->director,M_L->m_data.year,M_L->m_data.runtime);
@@ -189,12 +189,12 @@ void check_m_node(movie * M_L, m_node * newnode) // movie 연결리스트에 중
 				M_L->next=NULL;
 				M_L->m_data.actors=tmp;
 				return;
-			}
+			}//n일 경우 함수 리턴
 			else if(strcmp(c,"Yes") == 0 || strcmp(c,"Y") == 0 || strcmp(c,"yes") == 0 || strcmp(c,"y") == 0)
 			{
 				M_L=M_L->next;
 				continue;
-			}
+			}//y일 경우 그대로 반복문 진행
 		}
 		M_L=M_L->next;
 	}
@@ -338,7 +338,7 @@ void check_d_node(director * D_L, d_node * newnode) // director 연결리스트�
 	D_L = tmp_D_L;
 	while(D_L->next!=NULL)
 	{
-		if(strcmp(D_L->d_data.name, newnode->name) == 0)
+		if(strcmp(D_L->d_data.name, newnode->name) == 0)//기존의 존재하는 노드의 데이터와 새로 받은 노드의 데이터가 같은지 확인
 		{
 			printf("@@ You have the same record in director list.\n");
 			printf("%d:%s:%s:%s:",D_L->d_data.serial_number,D_L->d_data.name,&D_L->d_data.sex,D_L->d_data.birth);
@@ -375,12 +375,12 @@ void check_d_node(director * D_L, d_node * newnode) // director 연결리스트�
 				D_L->next=NULL;
 				D_L->d_data.best_movies=tmp;
 				return;
-			}
+			}//n일 경우 함수 리턴
 			else if(strcmp(c,"Yes") == 0 || strcmp(c,"Y") == 0 || strcmp(c,"yes") == 0 || strcmp(c,"y") == 0)
 			{
 				D_L=D_L->next;
 				continue;
-			}
+			}//y일 경우 반복문 진행
 		}
 		D_L=D_L->next;
 	}
@@ -517,7 +517,7 @@ void check_a_node(actor *A_L, a_node * newnode) // actor 연결리스트에 중�
 
 	while(A_L->next!=NULL)
 	{
-		if(strcmp(A_L->a_data.name, newnode->name) == 0)
+		if(strcmp(A_L->a_data.name, newnode->name) == 0)//기존의 존재하는 노드의 데이터와 새로 받은 노드의 데이터가 같은지 확인
 		{
 			printf("@@ You have the same record in director list.\n");
 			printf("%d:%s:%s:%s:",A_L->a_data.serial_number,A_L->a_data.name,&A_L->a_data.sex,A_L->a_data.birth);
@@ -554,13 +554,13 @@ void check_a_node(actor *A_L, a_node * newnode) // actor 연결리스트에 중�
 				A_L->next=NULL;
 				A_L->a_data.best_movies=tmp;
 				return;
-			}
+			}//n일 경우 함수 리턴
 			else if(strcmp(c,"Yes") == 0 || strcmp(c,"Y") == 0 || strcmp(c,"yes") == 0 || strcmp(c,"y") == 0)
 			{
 				A_L=A_L->next;
 				continue;
 			}
-		}
+		}//y일 경우 반복문 진행
 		A_L=A_L->next;
 	}
 	A_L->a_data.best_movies = tmp;
