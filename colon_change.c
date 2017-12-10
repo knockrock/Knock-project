@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "movie_manage_program.h"
+// #include "movie_manage_program.h"
+void rechange_colon(char* sentence);
+void rechange_colon_file(FILE* file, char *sentence);
+char* change_colon(char* sentence);
 
 void rechange_colon(char* sentence)
 {
@@ -51,8 +54,8 @@ char* change_colon(char* sentence)
 {
   char* colon_check;
   char* insert;
-  )
-  colon_check = strchr(setence, ':');
+
+  colon_check = strchr(sentence, ':');
 
   if(colon_check != NULL)
   {
@@ -69,15 +72,15 @@ char* change_colon(char* sentence)
 
     strcpy(insert, sentence);
 
-    for(int i = sentence_length - 1; i >= 0; i++)
+    for(int i = sentence_length - 1; i >= 0; i--)
     {
-      for(int j = sentence_length; j > i; j++)
-      {
-        *(insert + j + 2) = *(insert + j);
-      }
-
       if(*(insert + i) == ':')
       {
+        for(int j = sentence_length; j > i; j--)
+        {
+          *(insert + j + 2) = *(insert + j);
+        }
+
         *(insert + i) = '?';
         *(insert + i + 1) = '?';
         *(insert + i + 2) = ';';
