@@ -1,26 +1,16 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "movie_manage_program.h"
 
-void cntrl_signal(int sig){
-char c;
+void cntrl_signal(int sig){ // ctrl^z 를 받으면 실행
 printf("Get Interrupt Signal.\n");
 printf("Do you want to exit myMOVIE program? (y/n)");
-char *c = (char*)malloc(sizeof(char*)*10);
-gets(c);
-while(1)
-{
-  if(strcmp(c,"n") == 0 ||  strcmp(c,"N") == 0)
-  {
-    prompt();
-  }
-  else if(strcmp(c,"y") == 0 || strcmp(c,"Y") == 0)
-  {
-    exit(1);
-  }
-  else
-  {
-    printf("Wrong answer. Put again. ");
-    gets(c);
-  }
+char c ;
+
+c = getchar();
+if(c=='y'||c=='Y') // y거나 Y면 종료
+  exit(1);
+
 }
