@@ -35,7 +35,8 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 			M_L= M_L->next;
 		}
 		printf("@@ Done\n");
-	}
+		fclose(fp);
+	} // 받은 옵션이 하나일 경우 실행, movie_list파일을 열어 첫 노드부터 마지막 노드까지 파일출력.
 	if(optcnt==2)
 	{
 		FILE * fp = fopen("movie_list","w");
@@ -92,7 +93,8 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 			M_L= M_L->next;
 		}
 		printf("@@ Done\n");
-	}
+		fclose(fp);
+	}// 받은 option 이 두 개일 때 실행, 두번째 옵션의 값에 따라 필요한 데이터만을 movie_list에 파일출력
 	if(optcnt==3)
 	{
 		if(strcmp(opt2,"-f")!=0)
@@ -129,8 +131,9 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 				M_L= M_L->next;
 			}
 			printf("@@ Done\n");
+			fclose(fp);
 		}
-	}
+	}//옵션이 3개일 때 실행, 첫 노드부터 마지막 노드까지 모든 데이터를 지정한 파일에 파일출력
 	if(optcnt==4)
 	{
 		if(strcmp(opt3,"-f")!=0)
@@ -193,8 +196,9 @@ void m_save(movie *M_L, int optcnt, char * opt2, char* opt3, char* opt4) //movie
 				M_L= M_L->next;
 			}
 			printf("@@ Done\n");
+			fclose(fp);
 		}
-	}
+	}//옵션이 4개일 때 실행, 지정한 파일에 요구하는 옵션에 맞는 데이터를 모든 노드에 걸쳐 파일출력
 }
 void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //director 리스트 파일에 저장
 {
@@ -224,7 +228,8 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 			D_L= D_L->next;
 		}
 		printf("@@ Done\n");
-	}
+		fclose(fp);
+	}// 받은 옵션이 하나일 경우 실행, director_list파일을 열어 첫 노드부터 마지막 노드까지 파일출력.
 	if(optcnt==2)
 	{
 		FILE * fp = fopen("director_list","w");
@@ -271,7 +276,8 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 			D_L= D_L->next;
 		}
 		printf("@@ Done\n");
-	}
+		fclose(fp);
+	}// 받은 option 이 두 개일 때 실행, 두번째 옵션의 값에 따라 필요한 데이터만을 director_list에 파일출력
 	if(optcnt==3)
 	{
 		if(strcmp(opt2,"-f")!=0)
@@ -304,8 +310,9 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 				D_L= D_L->next;
 			}
 			printf("@@ Done\n");
+			fclose(fp);
 		}
-	}
+	}//옵션이 3개일 때 실행, 첫 노드부터 마지막 노드까지 모든 데이터를 지정한 파일에 파일출력
 	if(optcnt==4)
 	{
 		if(strcmp(opt3,"-f")!=0)
@@ -358,8 +365,9 @@ void d_save(director * D_L, int optcnt, char * opt2, char* opt3, char* opt4) //d
 				D_L= D_L->next;
 			}
 			printf("@@ Done\n");
+			fclose(fp);
 		}
-	}
+	}//옵션이 4개일 때 실행, 지정한 파일에 요구하는 옵션에 맞는 데이터를 모든 노드에 걸쳐 파일출력
 }
 void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //actor 리스트 파일에 저장
 {
@@ -389,7 +397,8 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 			A_L= A_L->next;
 		}
 		printf("@@ Done\n");
-	}
+		fclose(fp);
+	}// 받은 옵션이 하나일 경우 실행, actor_list파일을 열어 첫 노드부터 마지막 노드까지 파일출력.
 	if(optcnt==2)
 	{
 		FILE * fp = fopen("actor_list","w");
@@ -436,7 +445,8 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 			A_L= A_L->next;
 		}
 		printf("@@ Done\n");
-	}
+		fclose(fp);
+	}// 받은 option 이 두 개일 때 실행, 두번째 옵션의 값에 따라 필요한 데이터만을 actor_list에 파일출력
 	if(optcnt==3)
 	{
 		if(strcmp(opt2,"-f")!=0)
@@ -469,8 +479,9 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 				A_L= A_L->next;
 			}
 			printf("@@ Done\n");
+			fclose(fp);
 		}
-	}
+	}//옵션이 3개일 때 실행, 첫 노드부터 마지막 노드까지 모든 데이터를 지정한 파일에 파일출력
 	if(optcnt==4)
 	{
 		if(strcmp(opt3,"-f")!=0)
@@ -523,6 +534,7 @@ void a_save(actor * A_L, int optcnt, char * opt2, char* opt3, char* opt4) //acto
 				A_L= A_L->next;
 			}
 			printf("@@ Done\n");
+			fclose(fp);
 		}
-	}
+	}//옵션이 4개일 때 실행, 지정한 파일에 요구하는 옵션에 맞는 데이터를 모든 노드에 걸쳐 파일출력
 }

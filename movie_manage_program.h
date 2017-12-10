@@ -111,10 +111,13 @@ void delete_log_d(); // director log파일 읽을 때 삭제
 void delete_log_a(); // actor log파일 읽을 때 삭제
 void delete_log_m(); // movie log파일 읽을 때 삭제
 void cntrl_signal(); // 신호 처리 함수
-void d_link();
-void m_link();
-void a_link();
-void m_update_log();
-void d_update_log();
-void a_update_log();
+void d_link();//director 링크
+void m_link();//movie 링크
+void a_link();//actor 링크
+void m_update_log();// 로그파일에서 movie 업데이트 적용
+void d_update_log();// 로그파일에서 director 업데이트 적용
+void a_update_log();// 로그파일에서 actor 업데이트 적용
+void m_write();//movie_list 작성
+void d_write();//director_list 작성
+void a_write();//actor_list 작성
 #endif
