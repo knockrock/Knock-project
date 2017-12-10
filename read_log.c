@@ -37,6 +37,7 @@ movie *read_m_log(movie * M_L)
       tag = strtok(str,":");
       newnode->serial_number = atoi(strtok(NULL,":"));
       newnode->title = strtok(NULL,":");
+      newnode->title = change_colon(newnode->title);
       newnode->genre = strtok(NULL,":");
       newnode->director->director = strtok(NULL,":");
       newnode->year = strtok(NULL,":");
@@ -118,7 +119,6 @@ director *read_d_log(director * D_L)
       tmp->title = NULL;
       tmp->next=NULL;
       tmp = newnode->best_movies;
-
       fgets(str,250,fp);
       str = strtok(str,"\n");
       tag = strtok(str,":");
@@ -127,8 +127,8 @@ director *read_d_log(director * D_L)
       newnode->sex = *strtok(NULL,":");
       newnode->birth = strtok(NULL,":");
       tmp_best_movies = strtok(NULL,":");
+      tmp_best_movies = change_colon(tmp_best_movies);
       newnode->best_movies->title = strtok(tmp_best_movies,",");
-
       while(1)
     	{
     		link_title(newnode->best_movies);
@@ -208,6 +208,7 @@ actor *read_a_log(actor * A_L)
       newnode->sex = *strtok(NULL,":");
       newnode->birth = strtok(NULL,":");
       tmp_best_movies = strtok(NULL,":");
+      tmp_best_movies = change_colon(tmp_best_movies);
       newnode->best_movies->title = strtok(tmp_best_movies,",");
 
       while(1)//로그 파일의 내용을 한 줄씩 읽어서 각자 node로 만들어 tag에 따라 링크드리스트에 적용시킴
