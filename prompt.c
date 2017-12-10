@@ -96,6 +96,10 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
          }
          else
             printf("Please enter with factor (m|d|a).\n");
+      d_link(D_L,A_L,M_L);
+      a_link(A_L,D_L,M_L);
+      m_a_link(A_L,D_L,M_L);
+      m_d_link(D_L,A_L,M_L);
       }
 
       else if(strcmp(command,"search")==0)
