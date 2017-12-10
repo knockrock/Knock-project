@@ -106,7 +106,43 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
 
       else if(strcmp(command,"search")==0)
       {
+        int flag_s = 1;
+        if(optcnt>=1)
+        {
+          while(*opt1 != '\0')
+               {
+                if(*opt1 == 'm')
+                  {
+                    int tmp_flag = 1;
+                    tmp_flag = search_movie(M_L, opt2);
+                    if(flag_s == 1)
+                      flag_s = tmp_flag;
 
+                  }
+
+                else if(*opt1 == 'd')
+                  {
+                    int tmp_flag = 1;
+                    tmp_flag = search_actor(A_L, opt2);
+                     if(flag_s == 1)
+                      flag_s = tmp_flag;
+                  }
+
+                else if(*opt1 == 'a')
+                  {
+                    int tmp_flag = 1;
+                    search_director(D_L, opt2);
+                     if(flag_s == 1)
+                      flag_s = tmp_flag;
+                  }
+                  strcpy(opt1, opt1 + 1);
+               }
+
+          if(flag_s = 0)
+          {
+            printf("@@ No such record.\n");
+          }
+        }
       }
 
       else if(strcmp(command,"print")==0)
