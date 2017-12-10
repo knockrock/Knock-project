@@ -9,10 +9,15 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
    M_L = read_m_log(M_L);
    D_L = read_d_log(D_L);
    A_L = read_a_log(A_L);
+
    d_link(D_L,A_L,M_L);
    a_link(A_L,D_L,M_L);
    m_a_link(A_L,D_L,M_L);
    m_d_link(D_L,A_L,M_L);
+
+   m_write(M_L);
+   d_write(D_L);
+   a_write(A_L);
 
    while(1)
    {
@@ -21,11 +26,14 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
       signal(SIGINT,cntrl_signal);
       printf("(movie) ");
       gets(value);
+
       if (strlen(value) == 0)
       {
         continue;
       }
       else{
+
+
       while(*(value+i)!='\0')
       {
          if(*(value+i)==' ')
@@ -96,10 +104,13 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
          }
          else
             printf("Please enter with factor (m|d|a).\n");
+
       d_link(D_L,A_L,M_L);
       a_link(A_L,D_L,M_L);
       m_a_link(A_L,D_L,M_L);
       m_d_link(D_L,A_L,M_L);
+
+
       }
 
       else if(strcmp(command,"search")==0)
@@ -115,7 +126,11 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
            {
               if(!strcmp(opt1,"m"))
               {
+
                 print_m(M_L,opt2);
+
+                printf("%s\n", D_L->next->next->next->next->d_data.best_movies->same_title->title);
+
               }
               else if(!strcmp(opt1,"d"))
               {
@@ -123,7 +138,11 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
               }
               else if(!strcmp(opt1,"a"))
               {
+
                 print_a(A_L,opt2);
+
+
+
               }
               else
                  printf("Please enter with factor (m|d|a).\n");
@@ -139,6 +158,7 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
          {
             if(strcmp(opt1,"m")==0)
             {
+
                m_update(M_L,optcnt,opt2,opt3);
             }
             else if(strcmp(opt1,"d")==0)
@@ -148,6 +168,17 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
             else if(strcmp(opt1,"a")==0)
             {
                a_update(A_L,optcnt,opt2,opt3);
+
+               m_update(M_L,optcnt,opt2,atoi(opt3));
+            }
+            else if(strcmp(opt1,"d")==0)
+            {
+               d_update(D_L,optcnt,opt2,atoi(opt3));
+            }
+            else if(strcmp(opt1,"a")==0)
+            {
+               a_update(A_L,optcnt,opt2,atoi(opt3));
+
             }
             else
                printf("Please enter the necessary factor (m|d|a).\n");
@@ -235,4 +266,7 @@ void prompt(char * value, char * command, char * opt1, char * opt2, char * opt3,
          printf("Please enter correct command.\n");
    }
 }
+
 }
+
+

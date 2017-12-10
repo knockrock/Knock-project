@@ -5,6 +5,8 @@
 movie *read_m_log(movie * M_L)
 {
   char c;
+  char * option = (char*)malloc(10);
+  
   FILE *fp = fopen("movie_log","r");
   if((c=fgetc(fp))!=EOF)
   {
@@ -72,6 +74,20 @@ movie *read_m_log(movie * M_L)
       else if(strcmp(tag,"update")==0)
       {
 
+        if(strcmp(newnode->title,"=")!=0)
+          strcpy(option,"t");
+        if(strcmp(newnode->genre,"=")!=0)
+          strcpy(option,"g");
+        if(strcmp(newnode->director->director,"=")!=0)
+          strcpy(option,"d");
+        if(strcmp(newnode->year,"=")!=0)
+          strcpy(option,"y");
+        if(strcmp(newnode->runtime,"=")!=0)
+          strcpy(option,"r");
+        if(strcmp(newnode->actors->actor,"=")!=0)
+          strcpy(option,"a");
+        m_update_log(M_L,newnode,option,newnode->serial_number);
+
       }
       if((c=fgetc(fp))==EOF)
         break;
@@ -84,6 +100,9 @@ movie *read_m_log(movie * M_L)
 director *read_d_log(director * D_L)
 {
   char c;
+
+  char * option = (char*)malloc(10);
+
   FILE *fp = fopen("director_log","r");
   if((c=fgetc(fp))!=EOF)
   {
@@ -145,6 +164,16 @@ director *read_d_log(director * D_L)
       else if(strcmp(tag,"update")==0)
       {
 
+        if(strcmp(newnode->name,"=")!=0)
+          strcpy(option,"n");
+        if(strcmp(&newnode->sex,"=")!=0)
+          strcpy(option,"s");
+        if(strcmp(newnode->birth,"=")!=0)
+          strcpy(option,"b");
+        if(strcmp(newnode->best_movies->title,"=")!=0)
+          strcpy(option,"m");
+        d_update_log(D_L,newnode,option,newnode->serial_number);
+
       }
       if((c=fgetc(fp))==EOF)
         break;
@@ -157,6 +186,9 @@ director *read_d_log(director * D_L)
 actor *read_a_log(actor * A_L)
 {
   char c;
+
+  char * option = (char*)malloc(10);
+
   FILE *fp = fopen("actor_log","r");
   if((c=fgetc(fp))!=EOF)
   {
@@ -217,6 +249,16 @@ actor *read_a_log(actor * A_L)
       }
       else if(strcmp(tag,"update")==0)
       {
+
+        if(strcmp(newnode->name,"=")!=0)
+          strcpy(option,"n");
+        if(strcmp(&newnode->sex,"=")!=0)
+          strcpy(option,"s");
+        if(strcmp(newnode->birth,"=")!=0)
+          strcpy(option,"b");
+        if(strcmp(newnode->best_movies->title,"=")!=0)
+          strcpy(option,"m");
+        a_update_log(A_L,newnode,option,newnode->serial_number);
 
       }
       if((c=fgetc(fp))==EOF)

@@ -1,5 +1,6 @@
 #ifndef movie_manage_program_h
 
+
 #define movie_manage_program_h
 
 #include <stdio.h>
@@ -62,6 +63,65 @@ typedef struct director_list{
 typedef struct actor_list{
    a_node a_data;
    struct actor_list * next;
+
+#define movie_manage_program_h
+
+#include <stdio.h>
+
+typedef struct movie_node m_node; //영화 정보 저장 구조체
+typedef struct director_node d_node; //감독 정보 저장 구조체
+typedef struct actor_node a_node; //배우 정보 저장 구조체
+
+typedef struct to_movie{
+	char * title;
+	m_node * same_title;
+	struct to_movie * next;
+}to_movie;
+typedef struct to_director{
+	char * director;
+	d_node * same_director;
+	struct to_director * next;
+}to_director;
+typedef struct to_actor{
+	char * actor;
+	a_node * same_actor;
+	struct to_actor * next;
+}to_actor;
+typedef struct movie_node{
+	int  serial_number;
+	char * title;
+	char * genre;
+	to_director * director;
+	char * year;
+	char * runtime;
+	to_actor * actors;
+}m_node; //영화 정보 저장 구조체
+typedef struct director_node{
+	int serial_number;
+	char *name;
+	char sex;
+	char *birth;
+	to_movie * best_movies;
+}d_node; //감독 정보 저장 구조체
+typedef struct actor_node{
+	int serial_number;
+	char *name;
+	char sex;
+	char *birth;
+	to_movie *best_movies;
+}a_node; //배우 정보 저장 구조체
+typedef struct movie_list{
+	m_node m_data;
+	struct movie_list * next;
+}movie;
+typedef struct director_list{
+	d_node d_data;
+	struct director_list * next;
+}director;
+typedef struct actor_list{
+	a_node a_data;
+	struct actor_list * next;
+
 }actor;
 
 void link_actor(); //배우 리스트 연결
@@ -113,14 +173,26 @@ void delete_m(); // movie 노드 삭제
 void delete_d(); // director 노드 삭제
 void delete_a(); // actor 노드 삭제
 void print_d();  // director 노드 출력
+
 void print_a(); // actor 노드 출력
 void print_m(); // movie 노드 출력
+
+
 void delete_log_d(); // director log파일 읽을 때 삭제
 void delete_log_a(); // actor log파일 읽을 때 삭제
 void delete_log_m(); // movie log파일 읽을 때 삭제
 void cntrl_signal(); // 신호 처리 함수
+
 void d_link(); // 감독과 영화 연결 함수
 void a_link(); // 배우와 영화 연결 함수
 void m_a_link(); // 영화, 배우 연결 함수
 void m_d_link(); // 영화, 감독 연결 함수
+
+void d_link();
+void m_link();
+void a_link();
+void m_update_log();
+void d_update_log();
+void a_update_log();
+
 #endif
